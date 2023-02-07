@@ -22,7 +22,7 @@ class TomatoFigmaServiceProvider extends ServiceProvider
         //Publish Config
         $this->publishes([
            __DIR__.'/../config/tomato-figma.php' => config_path('tomato-figma.php'),
-        ], 'config');
+        ], 'tomato-figma-config');
 
         //Register Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -30,14 +30,14 @@ class TomatoFigmaServiceProvider extends ServiceProvider
         //Publish Migrations
         $this->publishes([
            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
+        ], 'tomato-figma-migrations');
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tomato-figma');
 
         //Publish Views
         $this->publishes([
            __DIR__.'/../resources/views' => resource_path('views/vendor/tomato-figma'),
-        ], 'views');
+        ], 'tomato-figma-views');
 
         //Register Langs
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tomato-figma');
@@ -45,7 +45,7 @@ class TomatoFigmaServiceProvider extends ServiceProvider
         //Publish Lang
         $this->publishes([
            __DIR__.'/../resources/lang' => resource_path('lang/vendor/tomato-figma'),
-        ], 'lang');
+        ], 'tomato-figma-lang');
 
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');

@@ -40,6 +40,6 @@ class TomatoFigmaInstall extends Command
         $this->callSilent('optimize:clear');
         $this->artisanCommand(["migrate"]);
         $this->artisanCommand(["optimize:clear"]);
-        $this->info('tomatoFigma installed successfully.');
+        $this->info('🍅 Tomato Figma installed successfully.');
     }
 }
