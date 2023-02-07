@@ -5,7 +5,12 @@
     "keywords": [
         "php",
         "laravel",
-        "template"
+        "figma",
+        "html",
+        "tailwind",
+        "converter",
+        "splade",
+        "tomato"
     ],
     "license": "MIT",
     "autoload": {
