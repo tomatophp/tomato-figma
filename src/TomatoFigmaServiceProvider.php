@@ -3,8 +3,9 @@
 namespace TomatoPHP\TomatoFigma;
 
 use Illuminate\Support\ServiceProvider;
+use TomatoPHP\TomatoAdmin\Facade\TomatoMenu;
+use TomatoPHP\TomatoAdmin\Services\Contracts\Menu;
 use TomatoPHP\TomatoFigma\Menus\FigmaMenu;
-use TomatoPHP\TomatoPHP\Services\Menu\TomatoMenuRegister;
 
 
 class TomatoFigmaServiceProvider extends ServiceProvider
@@ -49,13 +50,16 @@ class TomatoFigmaServiceProvider extends ServiceProvider
 
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-        TomatoMenuRegister::registerMenu(FigmaMenu::class);
-
     }
 
     public function boot(): void
     {
-        //you boot methods here
+       TomatoMenu::register(
+           Menu::make()
+               ->label("Figma")
+               ->group(__('Tools'))
+               ->icon("bx bxl-figma")
+               ->route("admin.figma.index")
+       );
     }
 }
